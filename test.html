@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+     
+
+      let numbers = [1, 2, 3, 4, 5]
+      
+      // REDUCE - Accumuler des éléments d'un tableau dans une valeur 
+      let reduceArray = numbers.reduce((accumulator, x) => {
+        return accumulator + x
+      }, 10); // 25
+
+      
+      // FIND 
+      const findArray = numbers.find((x) => {
+        return x === 5
+      })
+      // FINDINDEX
+      const findIndexArray = numbers.findIndex((x) => {
+        return x === 5
+      })
+      // INCLUDES - Renvoi un boolean true si la condition est true
+      // sur un élément de l'itération et false sinon
+      const includesArray = numbers.includes(7);
+
+
+    </script>
+</body>
+</html>

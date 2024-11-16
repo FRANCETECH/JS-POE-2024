@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Les callbacks</title>
+</head>
+<body>
+    <header class="py-4 mb-10 shadow-2xl">
+        <nav class="flex justify-between container mx-auto px-4 text-2xl">
+            <p>Découvrons Javascript</p>
+            <p>By Dawan</p>
+        </nav>
+    </header>
+
+    <main class="min-h-screen container mx-auto px-4">
+        <h1 class="text-5xl font-bold my-8 text-center">
+            Les callbacks</h1>
+         <p>Un callback est un fonction que l'on passe en 
+            paramètre d'une autre fonction et qui est censée 
+            être invoquer plus tard, une fois qu'une certaines
+            a été accomplit 
+         </p>
+
+         <button id="btn">
+            Cliquer pour faire un log
+         </button>
+
+         <code class="block whitespace-pre bg-gray-100 shadow-lg my-2 italic text-lg">
+          
+      // Opération syncrone (Non bloquante)
+      function add (a, b) {
+          return a + b
+      }
+      function multiply(a, b) {
+          return a * b
+      }
+      function calcule(a, b, fn) {
+          const result = fn(a, b)
+          console.log(result);
+          console.log("fff");
+      }
+      //calcule(3, 5, add)
+      //calcule(3, 5, multiply)
+
+      let n = [1, 2, 3, 4, 5]
+      let nDouble = n.map((x) => x * 2)
+
+      function monMap (array, callback) {
+          let result = [];
+          for(let i = 0; i < array.length ; i++) {
+              result.push(callback(array[i], i, array))
+          }
+
+          return result
+      }
+
+      // Opération asyncrone
+      function entrainement (callback) {
+          console.log("Naruto commence son entrainement"); // 1
+          //simuler un delais de 3s
+          setTimeout(() => {
+              callback()// callback // 3
+          }, 3000)
+         // alert("sdsdsdszd")
+          console.log("Naruto a finis son entrainement ") // 2
+      }
+      function mission () {
+          console.log("Naruto commence sa mission ")
+      }
+
+      function guerre () {
+          console.log("C'est la guerre ")
+      }
+
+      entrainement(mission)
+      entrainement(guerre)
+      const btn = document.querySelector("#btn")
+      btn.addEventListener("click" , function() {
+          console.log("hehehe")
+      })
+        </code>    
+
+   
+    </main>
+
+    <footer class="bg-black py-10 text-white font-thin mt-10">
+        <p class="text-center">
+            Copyright All rights reserved
+        </p>
+    </footer>
+    <script defer>
+
+
+      // Opération syncrone (Non bloquante)
+        function add (a, b) {
+            return a + b
+        }
+        function multiply(a, b) {
+            return a * b
+        }
+        function calcule(a, b, fn) {
+            const result = fn(a, b)
+            console.log(result);
+            console.log("fff");
+        }
+        //calcule(3, 5, add)
+        //calcule(3, 5, multiply)
+
+        let n = [1, 2, 3, 4, 5]
+        let nDouble = n.map((x) => x * 2)
+
+        function monMap (array, callback) {
+            let result = [];
+            for(let i = 0; i < array.length ; i++) {
+                result.push(callback(array[i], i, array))
+            }
+
+            return result
+        }
+
+        // Opération asyncrone
+        function entrainement (callback) {
+            console.log("Naruto commence son entrainement"); // 1
+            //simuler un delais de 3s
+            setTimeout(() => {
+                callback()// callback // 3
+            }, 3000)
+           // alert("sdsdsdszd")
+            console.log("Naruto a finis son entrainement ") // 2
+        }
+        function mission () {
+            console.log("Naruto commence sa mission ")
+        }
+
+        function guerre () {
+            console.log("C'est la guerre ")
+        }
+
+        entrainement(mission)
+        entrainement(guerre)
+        const btn = document.querySelector("#btn")
+        btn.addEventListener("click" , function() {
+            console.log("hehehe")
+        })
+
+    </script>
+</body>
+</html>

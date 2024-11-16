@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Les Objets</title>
+</head>
+<body>
+    <header class="py-4 mb-10 shadow-2xl">
+        <nav class="flex justify-between container mx-auto px-4 text-2xl">
+            <p>Découvrons Javascript</p>
+            <p>By Dawan</p>
+        </nav>
+    </header>
+
+    <main class="min-h-screen container mx-auto px-4">
+        <h1 class="text-5xl font-bold my-8 text-center">Les Objets</h1>
+        <p>En JS presque tout est objet.</p>
+        <p>Les Objets sont des structure de données sous forme de 
+            collection de propriétés.
+        </p>
+        <p>Les clés sont des chaines (ou symboles)
+            et les valeurs peuvent être n'importe quel type de 
+            données.
+        </p>
+        <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object">
+            Lien vers la documentation</a>
+       
+       
+        <div class="flex flex-col gap-2 font-thin">
+            <code class="block whitespace-pre bg-gray-100 shadow-lg my-2 italic text-lg">
+                // Création d'un objet
+                /*
+                 function saluer(annee) {
+                      // ici this fait référence à l'objet courant 
+                      console.log(`Salut je m'appelle ${this.nom} et 
+                        je viens du village de ${this.village} depuis ${annee}`)
+                 }
+                let naruto = {
+                    nom: "Naruto",
+                    village : "Konoha",
+                    
+                    saluer: function() {
+                        // ici this fait référence à l'objet courant 
+                        console.log(`Salut je m'appelle ${this.nom} et 
+                        je viens du village de ${this.village}`)
+                    },
+                    
+                    rasengan() {
+                        console.log("Rasengan"); // Syntaxe ES6
+                    }
+                }
+            
+                let sasuke = {
+                    nom: "Sasuke",
+                    village: "Konoha"
+                }
+                // call , apply, bind
+                // call : invoque un fn en lui passant un contexte 
+                // et une infinité d'arguments
+                saluer.call(naruto, "2005");
+                // apply :invoque un fn en lui passant un contexte 
+                // et un tableau d'arguments
+                saluer.apply(sasuke, ["2005"]);
+                // bind : 
+                const saluerSasuke = saluer.bind(sasuke, "2005");
+            
+                 // Création d'un objet
+              
+                 */
+                let naruto = {
+                    nom: "Naruto",
+                    village : "Konoha",
+                    
+                    saluer: function() {
+                        // ici this fait référence à l'objet courant 
+                        console.log(`Salut je m'appelle ${this.nom} et 
+                        je viens du village de ${this.village}`)
+                    },
+                    
+                    rasengan() {
+                        console.log("Rasengan"); // Syntaxe ES6
+                    }
+                }
+            
+                let sasuke = {
+                    nom: "Sasuke",
+                    village: "Konoha"
+                }
+                let orochimaru = {
+                    nom: "Orochimaru",
+                    village: "Konoha"
+                }
+            
+                naruto.saluer.call(sasuke) // Borrowing 
+                naruto.saluer.apply(orochimaru)
+            
+                // Ajout une propriété 
+                naruto.age = 17;
+                // Les Objets sont mutables
+                // modifier une propriété 
+                naruto.age = 19 
+                // supprimer une propriété 
+                delete naruto.age
+            
+                // Boucler sur les propriété d'un objet
+                for(let props in naruto){
+                    console.log(props);
+                    console.log(naruto[props]);
+                }
+            
+                // alternative creation obj
+                let itachi = new Object();
+                itachi.age = 32
+                itachi.nom = "Itachi"
+            
+                // Methode Objet
+                // renvoi un tableau contenant les clés de l'objet
+                Object.keys(naruto)
+                // renvoi un tableau contenant les valeurs de l'objet
+                Object.values(naruto)
+                // renvoi un tableau contenant des tableau  clés/valeurs
+                Object.entries(naruto)
+            
+            
+                // Copy d'un Objet 
+                let narutoClone = Object.assign({}, naruto)
+            
+            
+            
+                // Destructuring & Spread/Rest Operator : 
+                //  Syntaxical Sugar (Sucre syntaxique ) 
+                // let nom = naruto.nom
+                //let village = naruto.village
+            
+                const {nom, village} = naruto
+            
+                const personne = {
+                    name: "Ibra",
+                    age: 28,
+                    adress : {
+                        adressLine: "10 rue de la Paix",
+                        ville: "Paris",
+                        zipCode : "75000"
+                    },
+                    test: {
+                        aa: 1,
+                        bb: 2, 
+                        cb: 3
+                    }
+            
+                }
+            
+                // assigne des variables avec les champs correspondant de l'objet
+                let { name: firstName , age : myage, birthday = "1997", test : {aa, bb, cc}, test  } = personne
+            
+                function getNaruto() {
+                    return {
+                        fName: "Naruto",
+                        lName: "Uzumaki"
+                    }
+                }
+                const {fName, lName} = getNaruto()
+               // !!! si la fonction return null , le programme s'arrete 
+                function getSasuke() {
+                    return null
+                }
+               // solution "OR" operator
+                const {fame , lame } = getSasuke() || {}
+            
+                const luffy = {
+                    fName: "Luffy",
+                    lName: "Monkey D",
+                    id: 1
+                }
+            
+                // destructuration des paramètres d'une fonction 
+                let kingOfPirate = function({fName, lName, id}) {}`The king of pirate is ${lName} ${fName} numero : ${id} !`
+                let kingOfPirate2 = (pirate) => `The king of pirate is ${pirate.lName} ${pirate.fName} !`
+                let kingOfPirate3 = function({fName, lName, id}) {
+                    return `The king of pirate is ${lName} ${fName} numero : ${id} !`
+                }
+            
+            
+                kingOfPirate(luffy)
+            
+                const tableau = ["un", "deux", "trois"];
+                // sans destructuration
+                //let nb1 = tableau[0]
+                //let nb2 = tableau[1]
+                // avec 
+                let [nb1,, nb3] = tableau
+            
+                let foo1 = "Foo"
+                let bar3 = "Bar"
+                 // swaping 
+                [foo1, bar3] = [bar3, foo1]
+            
+                // Spread Operator (...)
+            
+                let narutoClone2 = {...naruto}
+                let jiraya = {...naruto, nom : "Jiraya", modeSenin: true}
+            
+                let konoha = {
+                    cityName: "Konoha",
+                    pays: "Pays du feu",
+                    habitants : 1000,
+                }
+            
+                // 
+                let {cityName, ...rest } = konoha
+            
+                const tableau2 = ["quatre", "cinq", "six"];
+                const tableau3 = [
+                    ...tableau,
+                    ...tableau2
+                ]
+                const tableauCopy = [...tableau, "quatre"]
+            
+                function afficherNom(premier, ...autres) {
+                    console.log(premier);
+                    console.log(autres);
+                
+                }
+            
+                afficherNom("Naruto", "Sasuke", "Luffy", "kaido", "Ussop")
+    
+            </code>    
+
+        </div>
+
+
+    </main>
+
+    <footer class="bg-black py-10 text-white font-thin mt-10">
+        <p class="text-center">
+            Copyright All rights reserved
+        </p>
+    </footer>
+
+    <script>  
+    // Création d'un objet
+    /*
+     function saluer(annee) {
+          // ici this fait référence à l'objet courant 
+          console.log(`Salut je m'appelle ${this.nom} et 
+            je viens du village de ${this.village} depuis ${annee}`)
+     }
+    let naruto = {
+        nom: "Naruto",
+        village : "Konoha",
+        
+        saluer: function() {
+            // ici this fait référence à l'objet courant 
+            console.log(`Salut je m'appelle ${this.nom} et 
+            je viens du village de ${this.village}`)
+        },
+        
+        rasengan() {
+            console.log("Rasengan"); // Syntaxe ES6
+        }
+    }
+
+    let sasuke = {
+        nom: "Sasuke",
+        village: "Konoha"
+    }
+    // call , apply, bind
+    // call : invoque un fn en lui passant un contexte 
+    // et une infinité d'arguments
+    saluer.call(naruto, "2005");
+    // apply :invoque un fn en lui passant un contexte 
+    // et un tableau d'arguments
+    saluer.apply(sasuke, ["2005"]);
+    // bind : 
+    const saluerSasuke = saluer.bind(sasuke, "2005");
+
+     // Création d'un objet
+  
+     */
+    let naruto = {
+        nom: "Naruto",
+        village : "Konoha",
+        
+        saluer: function() {
+            // ici this fait référence à l'objet courant 
+            console.log(`Salut je m'appelle ${this.nom} et 
+            je viens du village de ${this.village}`)
+        },
+        
+        rasengan() {
+            console.log("Rasengan"); // Syntaxe ES6
+        }
+    }
+
+    let sasuke = {
+        nom: "Sasuke",
+        village: "Konoha"
+    }
+    let orochimaru = {
+        nom: "Orochimaru",
+        village: "Konoha"
+    }
+
+    naruto.saluer.call(sasuke) // Borrowing 
+    naruto.saluer.apply(orochimaru)
+
+    // Ajout une propriété 
+    naruto.age = 17;
+    // Les Objets sont mutables
+    // modifier une propriété 
+    naruto.age = 19 
+    // supprimer une propriété 
+    delete naruto.age
+
+    // Boucler sur les propriété d'un objet
+    for(let props in naruto){
+        console.log(props);
+        console.log(naruto[props]);
+    }
+
+    // alternative creation obj
+    let itachi = new Object();
+    itachi.age = 32
+    itachi.nom = "Itachi"
+
+    // Methode Objet
+    // renvoi un tableau contenant les clés de l'objet
+    Object.keys(naruto)
+    // renvoi un tableau contenant les valeurs de l'objet
+    Object.values(naruto)
+    // renvoi un tableau contenant des tableau  clés/valeurs
+    Object.entries(naruto)
+
+
+    // Copy d'un Objet 
+    let narutoClone = Object.assign({}, naruto)
+
+
+
+    // Destructuring & Spread/Rest Operator : 
+    //  Syntaxical Sugar (Sucre syntaxique ) 
+    // let nom = naruto.nom
+    //let village = naruto.village
+
+    const {nom, village} = naruto
+
+    const personne = {
+        name: "Ibra",
+        age: 28,
+        adress : {
+            adressLine: "10 rue de la Paix",
+            ville: "Paris",
+            zipCode : "75000"
+        },
+        test: {
+            aa: 1,
+            bb: 2, 
+            cb: 3
+        }
+
+    }
+
+    // assigne des variables avec les champs correspondant de l'objet
+    let { name: firstName , age : myage, birthday = "1997", test : {aa, bb, cc}, test  } = personne
+
+    function getNaruto() {
+        return {
+            fName: "Naruto",
+            lName: "Uzumaki"
+        }
+    }
+    const {fName, lName} = getNaruto()
+   // !!! si la fonction return null , le programme s'arrete 
+    function getSasuke() {
+        return null
+    }
+   // solution "OR" operator
+    const {fame , lame } = getSasuke() || {}
+
+    const luffy = {
+        fName: "Luffy",
+        lName: "Monkey D",
+        id: 1
+    }
+
+    // destructuration des paramètres d'une fonction 
+    let kingOfPirate = function({fName, lName, id}) {}`The king of pirate is ${lName} ${fName} numero : ${id} !`
+    let kingOfPirate2 = (pirate) => `The king of pirate is ${pirate.lName} ${pirate.fName} !`
+    let kingOfPirate3 = function({fName, lName, id}) {
+        return `The king of pirate is ${lName} ${fName} numero : ${id} !`
+    }
+
+
+    kingOfPirate(luffy)
+
+    const tableau = ["un", "deux", "trois"];
+    // sans destructuration
+    //let nb1 = tableau[0]
+    //let nb2 = tableau[1]
+    // avec 
+    let [nb1,, nb3] = tableau
+
+    let foo1 = "Foo"
+    let bar3 = "Bar"
+     // swaping 
+    [foo1, bar3] = [bar3, foo1]
+
+    // Spread Operator (...)
+
+    let narutoClone2 = {...naruto}
+    let jiraya = {...naruto, nom : "Jiraya", modeSenin: true}
+
+    let konoha = {
+        cityName: "Konoha",
+        pays: "Pays du feu",
+        habitants : 1000,
+    }
+
+    // Rest operator
+    let {cityName, ...rest } = konoha
+
+    // Fusion de tableau ou objet
+    const tableau2 = ["quatre", "cinq", "six"];
+    const tableau3 = [
+        ...tableau,
+        ...tableau2
+    ]
+    // ajout d'un élément
+    const tableauCopy = [...tableau, "quatre"]
+
+    // infinité de paramètres
+    function afficherNom(premier, ...autres) {
+        console.log(premier);
+        console.log(autres);
+    
+    }
+
+    afficherNom("Naruto", "Sasuke", "Luffy", "kaido", "Ussop");
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

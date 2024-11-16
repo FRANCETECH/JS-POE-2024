@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Variables</title>
+</head>
+<body>
+    <header class="py-4 mb-10 shadow-2xl">
+        <nav class="flex justify-between container mx-auto px-4 text-2xl">
+            <p>Découvrons Javascript</p>
+            <p>By Dawan</p>
+        </nav>
+    </header>
+
+    <main class="min-h-screen container mx-auto px-4">
+        <h1 class="text-5xl font-bold my-8 text-center">Structure de controle</h1>
+        <div class="flex flex-col gap-2 font-thin">
+            <code class="block whitespace-pre bg-gray-100 shadow-lg my-2 italic text-lg">
+                // Structure de controle
+                // - des instructions qui permettent d'executer certaines à des conditions ou boucler une partie de code
+                let luffy = "Luffy"
+                // if/else
+                if(luffy === "Luffy") {
+                    console.log("Luffy est la");
+                } else {
+                    console.log("Luffy n'est pas la")
+                }
+        
+                // if/else if / else
+                let age = 18
+                if(age < 18) {
+                    console.log("Vous êtes mineur");
+                } else if(age >= 18 && age < 21) {
+                    console.log("Vous êtes majeur mais pas adulte");
+                } else {
+                    console.log("Vous êtes adulte")
+                }
+        
+        
+                // switch
+                let fruit = 'pomme'
+                switch(fruit) {
+                    case "pomme": 
+                    console.log("C'est une pomme")
+                    break
+                    case "banane": 
+                    console.log("C'est une banane")
+                    break
+                    default: 
+                    console.log("Pas de fruits ici")
+                }
+        
+                // Opérateur ternaire 
+                // condition sans le ternaire
+                let age2 = 18
+                if(age2 < 18) {
+                    console.log("Vous êtes mineur");
+                } else {
+                    console.log("Vous êtes adulte")
+                }
+        
+                // condition avec le ternaire
+                // condition ? si condition true : si condition
+                let majeur = age > 18 ? true : false
+                
+                // while
+                let i = 0
+                // tant que i < 10 on execute le code
+                // i++ 
+                while(i< 10) {
+                    console.log(1)
+                    i++
+                }
+        
+    
+            </code>    
+
+        </div>
+
+
+    </main>
+
+    <footer class="bg-black py-10 text-white font-thin mt-10">
+        <p class="text-center">
+            Copyright All rights reserved
+        </p>
+    </footer>
+
+    <script>   
+        // Structure de controle
+        // - des instructions qui permettent d'executer certaines à des conditions ou boucler une partie de code
+        let luffy = "Luffy"
+        // if/else
+        if(luffy === "Luffy") {
+            console.log("Luffy est la");
+        } else {
+            console.log("Luffy n'est pas la")
+        }
+
+        // if/else if / else
+        let age = 18
+        if(age < 18) {
+            console.log("Vous êtes mineur");
+        } else if(age >= 18 && age < 21) {
+            console.log("Vous êtes majeur mais pas adulte");
+        } else {
+            console.log("Vous êtes adulte")
+        }
+
+
+        // switch
+        let fruit = 'pomme'
+        switch(fruit) {
+            case "pomme": 
+            console.log("C'est une pomme")
+            break
+            case "banane": 
+            console.log("C'est une banane")
+            break
+            default: 
+            console.log("Pas de fruits ici")
+        }
+
+        // Opérateur ternaire 
+        let age2 = 18
+        if(age2 < 18) {
+            console.log("Vous êtes mineur");
+        } else {
+            console.log("Vous êtes adulte")
+        }
+
+        let majeur = age > 18 ? true : false
+        // condition ? si condition true : si condition
+
+        // while
+        let i = 0
+        // tant que i < 10 on execute le code
+        // i++ 
+        while(i< 10) {
+            console.log(1)
+            i++
+        }
+
+
+    </script>
+    
+</body>
+</html>

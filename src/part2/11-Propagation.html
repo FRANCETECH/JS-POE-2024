@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>La Propagation</title>
+    <script src="propagation.js" defer></script>
+</head>
+<body>
+    <header class="py-4 mb-10 shadow-2xl">
+        <nav class="flex justify-between container mx-auto px-4 text-2xl">
+            <p>Découvrons Javascript</p>
+            <p>By Dawan</p>
+        </nav>
+    </header>
+
+    <main class="min-h-screen container mx-auto px-4">
+        <h1 class="text-5xl font-bold my-8 text-center">
+            La Propagation</h1>
+        <p>Mécanisme par lequel un event se propage à travers 
+            le DOM. 
+        </p>
+        <p>Lorqu'un événement se produit, il se propage d'abord
+            à cette élément puis à ses parents jusqu'a la racine 
+            du document.</p>
+        <div class="flex flex-col gap-2 font-thin">
+         <div id="grandpa" class="h-20 bg-red-600">
+            DIV
+            <form id="pa" class="h-20 bg-red-300">
+                Formulaire
+                <button type="button" id="child" class="p-2 bg-red-100">
+                    Cliquez-ici
+                </button>
+            </form>
+         </div> 
+
+         <ul id=""products" class=" flex gap-3 mt-6">
+            <li class="bg-cyan-100 p-3">Macbook Air</li>
+            <li class="bg-cyan-100 p-3">Macbook Pro</li>
+            <li class="bg-cyan-100 p-3">Airpod pro</li>
+            <li class="bg-cyan-100 p-3">Roccat TKL </li>
+         </ul>  
+
+
+        <h2 class=""></h2>
+        <code class="block whitespace-pre bg-gray-100 shadow-lg my-2 italic text-lg">
+    
+        </code>
+       
+    </main>
+
+    <footer class="bg-black py-10 text-white font-thin mt-10">
+        <p class="text-center">
+            Copyright All rights reserved
+        </p>
+    </footer>
+</body>
+</html>

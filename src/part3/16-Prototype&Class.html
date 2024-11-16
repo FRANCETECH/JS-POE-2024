@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Prototype & Class</title>
+    <script src="proto.js" defer></script>
+</head>
+<body>
+    <header class="py-4 mb-10 shadow-2xl">
+        <nav class="flex justify-between container mx-auto px-4 text-2xl">
+            <p>Découvrons Javascript</p>
+            <p>By Dawan</p>
+        </nav>
+    </header>
+
+    <main class="min-h-screen container mx-auto px-4">
+        <h1 class="text-5xl font-bold my-8 text-center">Prototype & Class</h1>
+        <p>Le prototypage est un mécanisme en JS ou les Objets
+            héritent des propriétés et des méthodes d'autres objets
+        </p>
+        <h2 class="font-bold text-xl my-4">Prototypage et héritage</h2>
+        <code class="block whitespace-pre bg-gray-100 shadow-lg my-2 italic text-lg">
+       __proto__  est une propriété en Javascript qui pointe 
+        vers le prototype de l'objet 
+        Les prototypes peuvent également avoir des prototypes ! 
+        c'est ce que l'on la chaine de prototypes
+        Lorsque vous essayer d'accéder à une propriéte sur un objet
+        Js vérifie si la propriété existe sur l'objet lui même 
+        si elle n'existe pas , il regarde le prototype de l'objet, si il ne l'a trouve
+        toujours pas il regarde le prototype du prototype jusquàa atteindre le Haut 
+        de la chaîne "null"
+        </code> 
+    
+         <code class="block whitespace-pre bg-gray-100 shadow-lg my-2 italic text-lg">
+    
+        </code>    
+
+   
+    </main>
+
+    <footer class="bg-black py-10 text-white font-thin mt-10">
+        <p class="text-center">
+            Copyright All rights reserved
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Event Listener</title>
+    <script src="listener.js" defer></script>
+</head>
+<body>
+    <header class="py-4 mb-10 shadow-2xl">
+        <nav class="flex justify-between container mx-auto px-4 text-2xl">
+            <p>Découvrons Javascript</p>
+            <p>By Dawan</p>
+        </nav>
+    </header>
+
+    <main class="min-h-screen container mx-auto px-4">
+        <h1 class="text-5xl font-bold my-8 text-center">
+            Les Event Listener</h1>
+        <div class="flex flex-col gap-2 font-thin">
+        <p>Les événement en JS permettent de détecter et réagir
+            aux interactions de l'utilisateur.
+        </p>
+        <p>Ils sont asyncrones</p>
+        <h2 class="">Event de souris</h2>
+        <code class="block whitespace-pre bg-gray-100 shadow-lg my-2 italic text-lg">
+            click: se déclenche lorsque un élément est cliqué
+            mouseover: se déclenche lorsque le curseur de la souris 
+            survole un élément
+            mouseout : se déclenche lorsque le curseur de la souris 
+            quitte un élément
+        </code>
+        <h2>Event de clavier</h2>
+        <code class="block whitespace-pre bg-gray-100 shadow-lg my-2 italic text-lg">
+            keydown : lorsque qu'on appuie sur une touche
+            keyup : lorsque qu'on relache la touche
+            keypress : lorsque qu'on maintient la touche enfoncé
+        </code>
+        <h2>Event de fenêtre</h2>
+        <code class="block whitespace-pre bg-gray-100 shadow-lg my-2 italic text-lg">
+            scroll : lorsque l'on fait défiler la page
+            resize : lorsque la fenêtre est redimensionné
+        </code>
+
+        <h2>Event de chargement</h2>
+        <code class="block whitespace-pre bg-gray-100 shadow-lg my-2 italic text-lg">
+            DOMContentLoaded : se declenche lorsque 
+            le DOM est entièrement construit
+            load : lorsque la page et toutes ses ressources sont entièrement 
+            chargées
+        </code>  
+        
+        <section id="playground">
+            <button id="btn" class="bg-black text-white p-4 hover:opacity-80">
+               Ajouter un texte
+            </button>
+            <img id="img" src="https://images.unsplash.com/photo-1682687980115-a37b56ea7271?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60"
+                 width="400" height="400" />
+
+                 <!--Drag and drop-->
+                 <div class="flex flex-col items-center space-y-4 my-2">
+                   <div
+                   style="position: absolute; top: 50%; left: 50%"
+                    class="draggable bg-blue-500 text-white p-5 cursor-pointer">
+                    Glissez-moi
+                  </div>
+                </div>
+                   <!--Text Editable-->
+                   <div class="flex flex-col items-center space-y-4 my-2">
+                    <div class="editable-text bg-gray-50  p-5">
+                     Double-cliquer pour éditer ce texte
+                   </div>
+            
+                 </div>
+                    <!--Raccourci clavier -->
+                    <div class="flex flex-col items-center space-y-4 my-2">
+                        <p>Appuyer sur Crtl+G pour voir une 
+                            action dans la console
+                        </p>
+                     </div>
+
+
+        </section>
+    </main>
+
+    <footer class="bg-black py-10 text-white font-thin mt-10">
+        <p class="text-center">
+            Copyright All rights reserved
+        </p>
+    </footer>
+</body>
+</html>

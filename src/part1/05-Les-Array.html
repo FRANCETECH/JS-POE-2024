@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Les Tableaux et boucles</title>
+</head>
+<body>
+    <header class="py-4 mb-10 shadow-2xl">
+        <nav class="flex justify-between container mx-auto px-4 text-2xl">
+            <p>Découvrons Javascript</p>
+            <p>By Dawan</p>
+        </nav>
+    </header>
+
+    <main class="min-h-screen container mx-auto px-4">
+        <h1 class="text-5xl font-bold my-8 text-center">Les Tableaux</h1>
+        <p>Un tableau c'est une structure de données qui permet de stocker 
+            et d'organiser plusieurs éléments sous un seul identifiant
+        </p>
+        <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array">
+            Lien vers la doc</a>
+        <div class="flex flex-col gap-2 font-thin">
+            <code class="block whitespace-pre bg-gray-100 shadow-lg my-2 italic text-lg">
+                 // Les tableaux sont des objets
+    let array = [] // tableau vide 
+    typeof array // 'object'
+
+    let array2 = ["Sasuke", "Itachi", "Obito", "Madara"]
+    console.log(array2);
+    // l'index commence à 0
+    // VERSION ALTERNATIVE : FONCTION CONSTRUCTEUR
+    let array3 = new Array("Sasuke", "Itachi", "Obito", "Madara")
+    console.table(array3);
+
+    console.log(`la taille du tableau est de ${array3.length}`)
+
+    let staticArray = new Array(5)
+    staticArray[0] = "Naruto"
+    staticArray[1] = "Sasuke"
+    staticArray[2] = "Sakura"
+
+
+    // tableau multidimensionel
+    let multiArray = [
+        {a: 1, b: 2, c: 3 },
+        [11, 22, 33 ],
+        [111, 222, 333 ],
+    ]
+
+    console.log(multiArray[0].c)
+
+    /** Parcourir un tableau **/
+
+
+     // parcourir un tableau avec la boucle for
+     for(let i = 0; i < array2.length; i++ ) {
+        console.log(`For ${array2[i]} Uchiwa`)
+     }
+
+     // for of
+     for(let element of array2) {
+        console.log(`For ${element} Uchiwa`)
+     }
+
+     /** Manipulation des tableaux avec les methodes **/
+     
+      // Ajout d'un élément a la fin du tableau 
+      array2.push('Shuishi')     
+      // Ajout un élément au début 
+      array2.unshift("Fukagu")
+      // supprimer le dernier élément
+      array2.pop()
+      // supprimer le premier d'un tableau
+      array2.shift()
+
+      // supprimer un élément selon son index
+      array2.splice(2, 1) 
+
+      // fusionner des tableaux
+      let arrayFusion = ["Kushina", "Minato"]
+      let array4 = array2.concat(arrayFusion)
+
+      array4.reverse()
+
+      let array5 = array4.slice();
+      array4.push("yugdfuizsdgfuiezr")
+
+      array5 === array4
+      // Shallow copy
+
+      let string = "Naruto Uzumaki";
+      let narutoArray = string.split(" ") // séparateur
+
+
+      /** Exercice **/
+      // créer un fonction reverse qui inverse une chaine 
+      // de charactère
+      // exemple :
+
+      //"Je suis Naruto Uzumaki" -> "ikamuzU oturaN sius eJ"
+      // 2 solutions
+
+      // solution 1 
+      function reverse(value) {
+        let taille = value.length
+        let array = new Array(taille)
+        for(let i = 0; i < array.length; i++) {
+            array[taille - 1 - i] = value[i]
+        }
+
+        let chaine = ""
+        for(let y = 0; y < array.length; y++) {
+            chaine+= array[y]
+        }
+
+        return chaine
+      }
+
+      // solution 2 
+      function reverse2(text){
+            let reverse = "";
+            for (let i = 1; i <= text.length; i++) {
+            
+                reverse += text.charAt(text.length - i);
+            }
+            return reverse
+        }
+
+     // solution 3
+     function reverse3(value) {
+        // verifier l'input
+        if(typeof value != 'string' || value.length === 0) {
+            return "Veuillez entrez un chaine valide"
+        }
+        const backwards = [] // tableau vide
+        const totalItems = value.length - 1
+        for( let i = totalItems; i >=0; i-- ) {
+            backwards.push(value[i])
+        }
+
+        return backwards.join("")
+     }   
+
+     // solution 4 
+     function reverse4(value) {
+          // verifier l'input
+          if(typeof value != 'string' || value.length === 0) {
+            return "Veuillez entrez un chaine valide"
+        }
+        return value.split("").reverse().join("")
+     } 
+
+     /** Manipuler des tableaux avec des méthodes avancée
+      * HOF (High order Function)
+      * 1 : prendre une fonction en paramètre
+      * 2 : retourner une fonction 
+      * 3 : ou les deux 
+      *  **/ 
+
+      // forEach 
+      array4.forEach((element) => {
+        console.log(`ForEach ${element} Uchiwa`);
+
+      })
+
+      const numbers = [1, 2, 3, 4, 5]
+      // ForEach- Boucle sur le tableau mais ne retourne rien 
+      const forEachArray = numbers.forEach((x) => {
+         return x * 2
+      })
+      // MAP : Création d'un nouveau tableau en affectant 
+      // un comportement à chacun des éléments 
+      const mapArray = numbers.map((x) => {
+        return x * 2
+      })
+      // FILTER- Création d'un nouveau tableau en filtrant 
+      // les éléments du tableau 
+      const filterArray = numbers.filter((x) => {
+            return x > 3;
+      })
+      // REDUCE - Accumuler des éléments d'un tableau dans un valeur 
+      const reduceArray = numbers.reduce((accumulator, x) => {
+        return accumulator + x
+      }, 10); // 25
+
+      // FIND 
+      const findArray = numbers.find((x) => {
+        return x === 5
+      })
+      // FINDINDEX
+      const findIndexArray = numbers.findIndex((x) => {
+        return x === 5
+      })
+      // INCLUDES - Renvoi un boolean true si la condition est true
+      // sur un élément de l'itération et false sinon
+      const includesArray = numbers.includes(7);
+            </code>    
+
+        </div>
+
+
+    </main>
+
+    <footer class="bg-black py-10 text-white font-thin mt-10">
+        <p class="text-center">
+            Copyright All rights reserved
+        </p>
+    </footer>
+
+    <script>  
+    // Les tableaux sont des objets
+    let array = [] // tableau vide 
+    typeof array // 'object'
+
+    let array2 = ["Sasuke", "Itachi", "Obito", "Madara"]
+    console.log(array2);
+    // l'index commence à 0
+    // VERSION ALTERNATIVE : FONCTION CONSTRUCTEUR
+    let array3 = new Array("Sasuke", "Itachi", "Obito", "Madara")
+    console.table(array3);
+
+    console.log(`la taille du tableau est de ${array3.length}`)
+
+    let staticArray = new Array(5)
+    staticArray[0] = "Naruto"
+    staticArray[1] = "Sasuke"
+    staticArray[2] = "Sakura"
+
+
+    // tableau multidimensionel
+    let multiArray = [
+        {a: 1, b: 2, c: 3 },
+        [11, 22, 33 ],
+        [111, 222, 333 ],
+    ]
+
+    console.log(multiArray[0].c)
+
+    /** Parcourir un tableau **/
+
+
+     // parcourir un tableau avec la boucle for (pour)
+     for(let i = 0; i < array2.length; i++ ) {
+        console.log(`For ${array2[i]} Uchiwa`)
+     }
+
+     // for of
+     for(let element of array2) {
+        console.log(`For ${element} Uchiwa`)
+     }
+
+     /** Manipulation des tableaux avec les methodes **/
+     
+      // Ajout d'un élément a la fin du tableau 
+      array2.push('Shuishi')     
+      // Ajout un élément au début 
+      array2.unshift("Fukagu")
+      // supprimer le dernier élément
+      array2.pop()
+      // supprimer le premier d'un tableau
+      array2.shift()
+
+      // supprimer un élément selon son index
+      /*
+      array.splice(start, deleteCount, item1, item2, ...); start : L'indice à partir duquel commencer à modifier le tableau.
+      deleteCount : Le nombre d'éléments à supprimer à partir de l'indice start.
+      item1, item2, ... : Les nouveaux éléments à ajouter à partir de l'indice start (optionnel).
+      */
+      array2.splice(2, 1) // 2=L'indice à partir duquel commencer à modifier le tableau.; 1=Le nombre d'éléments à supprimer à partir de l'indice 
+
+
+      // fusionner des tableaux
+      let arrayFusion = ["Kushina", "Minato"]
+      let array4 = array2.concat(arrayFusion)
+
+      array4.reverse()
+
+      let array5 = array4.slice();
+      array4.push("yugdfuizsdgfuiezr")
+
+      array5 === array4
+      // Shallow copy
+
+      let string = "Naruto Uzumaki";
+      let narutoArray = string.split(" ") // séparateur
+
+
+      /** Exercice **/
+      // créer une fonction reverse qui inverse une chaine 
+      // de charactère
+      // exemple : //"Je suis Naruto Uzumaki" -> "ikamuzU oturaN sius eJ"
+
+      
+      //  solutions
+
+      // solution 1 
+      function reverse(value) {
+        let taille = value.length
+        let array = new Array(taille)
+        for(let i = 0; i < array.length; i++) {
+            array[taille - 1 - i] = value[i]
+        }
+
+        let chaine = ""
+        for(let y = 0; y < array.length; y++) {
+            chaine+= array[y]
+        }
+
+        return chaine
+      }
+
+      // solution 2 
+      function reverse2(text){
+            let reverse = "";
+            for (let i = 1; i <= text.length; i++) {
+            
+                reverse += text.charAt(text.length - i);
+            }
+            return reverse
+        }
+
+     // solution 3
+     function reverse3(value) {
+        // verifier l'input
+        if(typeof value != 'string' || value.length === 0) {
+            return "Veuillez entrez un chaine valide"
+        }
+        const backwards = [] // tableau vide
+        const totalItems = value.length - 1
+        for( let i = totalItems; i >=0; i-- ) {
+            backwards.push(value[i])
+        }
+
+        return backwards.join("")
+     }   
+
+     // solution 4 
+     function reverse4(value) {
+          // verifier l'input
+          if(typeof value != 'string' || value.length === 0) {
+            return "Veuillez entrez un chaine valide"
+        }
+        return value.split("").reverse().join("")
+     } 
+
+     /** Manipuler des tableaux avec des méthodes avancée
+      * HOF (High order Function)
+      * 1 : prendre une fonction en paramètre
+      * 2 : retourner une fonction 
+      * 3 : ou les deux 
+      *  **/ 
+
+      // forEach 
+      array4.forEach((element) => {
+        console.log(`ForEach ${element} Uchiwa`);
+
+      })
+
+      const numbers = [1, 2, 3, 4, 5]
+      // ForEach- Boucle sur le tableau mais ne retourne rien 
+      const forEachArray = numbers.forEach((x) => {
+         return x * 2
+      })
+      // MAP : Création d'un nouveau tableau en affectant 
+      // un comportement à chacun des éléments 
+      const mapArray = numbers.map((x) => {
+        return x * 2
+      })
+      // FILTER- Création d'un nouveau tableau en filtrant 
+      // les éléments du tableau 
+      const filterArray = numbers.filter((x) => {
+            return x > 3;
+      })
+      // REDUCE - Accumuler des éléments d'un tableau dans un valeur 
+      const reduceArray = numbers.reduce((accumulator, x) => {
+        return accumulator + x
+      }, 10); // 25
+
+      // FIND 
+      const findArray = numbers.find((x) => {
+        return x === 5
+      })
+      // FINDINDEX
+      const findIndexArray = numbers.findIndex((x) => {
+        return x === 5
+      })
+      // INCLUDES - Renvoi un boolean true si la condition est true
+      // sur un élément de l'itération et false sinon
+      const includesArray = numbers.includes(7);
+
+    </script>
+    
+</body>
+</html>

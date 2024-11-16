@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>HTTP</title>
+    <script src="http.js" defer></script>
+</head>
+<body>
+    <header class="py-4 mb-10 shadow-2xl">
+        <nav class="flex justify-between container mx-auto px-4 text-2xl">
+            <p>Découvrons Javascript</p>
+            <p>By Dawan</p>
+        </nav>
+    </header>
+
+    <main class="min-h-screen container mx-auto px-4">
+        <h1 class="text-5xl font-bold my-8 text-center">HTTP</h1>
+        <p>Le protocole HTTP est la manière dont les navigateurs web
+            et les serveurs communiquent entre eux. </p>
+
+        <h2 class="font-bold text-xl my-4">Concept essentiels</h2>
+        <code class="block whitespace-pre bg-gray-100 shadow-lg my-2 italic text-lg">
+            Méthodes : 
+            GET : Récupèrer des données 
+            POST : Soumettre des données
+            PUT: Met à jour une ressource spécifique avec des données fournies
+            DELETE : Supprime une ressources spécifique
+
+            Code de statut: 
+            2xx : Succès (ex: 200 OK)
+            3xx : Rédirection (ex : 301 : Moved Permanently)
+            4xx : Erreurs coté client (ex 404 NOT FOUND)
+            5xx : Erreurs coté serveurs (ex 500 INTERNAL SERVER ERROR )
+        </code> 
+
+        <h2 class="font-bold text-xl my-4">Générateur de citation</h2>
+        <section class="flex justify-center my-10">
+
+            <div class="shadow-2xl bg-white p-5 border lg:w-1/3 w-full">
+                <p class="text-2xl italic" id="quote"></p>
+                <p class="text-2xl italic" id="loading">chargement en cours...</p>
+                <div class="flex mt-5">
+                    <button 
+                    class="bg-black font-bold hover:bg-white shadow-lg hover:text-black p-4 text-white uppercase" 
+                    id="new-quote">Nouvelle citation</button>
+                </div>
+            </div>
+           </section>
+    
+         <code class="block whitespace-pre bg-gray-100 shadow-lg my-2 italic text-lg">
+    
+        </code>    
+
+   
+    </main>
+
+    <footer class="bg-black py-10 text-white font-thin mt-10">
+        <p class="text-center">
+            Copyright All rights reserved
+        </p>
+    </footer>
+</body>
+</html>

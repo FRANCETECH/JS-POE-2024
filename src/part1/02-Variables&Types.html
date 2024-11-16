@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Variables</title>
+</head>
+<body>
+    <header class="py-4 mb-10 shadow-2xl">
+        <nav class="flex justify-between container mx-auto px-4 text-2xl">
+            <p>Découvrons Javascript</p>
+            <p>By Dawan</p>
+        </nav>
+    </header>
+
+    <main class="min-h-screen container mx-auto px-4">
+        <h1 class="text-5xl font-bold my-8 text-center">Variables</h1>
+        <div class="flex flex-col gap-2 font-thin">
+            <code class="block whitespace-pre bg-gray-100 shadow-lg my-2 italic text-lg">
+                // commentaire
+                // variable : 1 donnée stockée en mémoire + 1 symbole + 1 type de donnée
+       
+                // déclaration de variable :
+                // var : mot clé historique : portée de fonction  (pratiquement plus utilisé)
+                // let : idem que var -> portée de block
+                // déclaration de constante :
+                // const : portée de block , il ne peut pas réasigner
+                // sans mot clé  : équivalent à var si la variable n'existe pas encore 
+       
+       
+                // type de donnée
+       
+                // Primitifs : stockage par valeur
+                // Number 
+                // String
+                // Boolean
+                // Null
+                // Undefined
+                // Symbol (ES6)
+       
+                // Complexe stocker par référence
+                // Object
+                // Array
+                // Function
+       
+                let nombre = 54 // number 
+                let chaine = "Bonjour" // string
+                let bool = true // ou false
+                let nul = null
+                let indefini = undefined
+                let symbol = Symbol('symbol') // symbol
+       
+                function func() {
+       
+                }
+       
+                let equipage = ["Luffy", "Ussop", "Sanji"]; // Array
+                let personnage = {
+                   nom : "Naruto",
+                   village: "Konoha"
+                } // Objet
+       
+                //Ce sont des Data stuctures 
+       
+                // Scope -> Porté -> visibilité ou accessibilité d'une variable
+       
+                /**
+                 * Scope Global : par défaut 
+                 * Scope de fonction 
+                 * Scope de block // ES6 let const
+               **/
+       
+               demo()
+               var a = "Je suis une variable" // scope global
+               
+               function demo() {  
+                   const b = "Je suis une autre fonction" //  scope fonction
+                   console.log(b); // accesible que dans la fonction
+                   console.log(a) // accessible dans le scope de la fonction et le scope global
+                   console.log(c)
+               }
+       
+           
+               var c; // undefined (hisser pendant la phase de création)
+               // let et const -> hoister 
+               // TEMPORAL DEAD ZONE 
+       
+               // Hoisting
+       
+               console.log(op)
+               var op = 12
+       
+               // Lexical scope 
+       
+               let outerVar = "Je suis a l'exterieur";
+       
+               function outerFunction() {
+                   let innerVar = "Je suis à l'intérieur"
+       
+       
+                   function innerFunction() {
+                       console.log(innerVar);
+                       console.log(outerVar);
+                   }
+                   innerFunction()
+               }
+       
+               outerFunction()
+       
+               // Scope chain
+               function text() {
+                   var x = 1
+                   if(true) {
+                       var x = 2
+                       console.log(x);
+                   }
+                   console.log(x)
+               }
+       
+               function text2() {
+                   let x = 1
+                   if(true) {
+                       let x = 2
+                       console.log(x);
+                   }
+                   console.log(x)
+               }
+       
+               // typeof : opérateur unaire
+               console.log(typeof outerVar)
+       
+               /*** Opérateur **/
+               // arithmétique
+               let addition = 100 + 80 
+               console.log(addition);
+               let soustraction = 12 - 2
+               console.log(soustraction);
+       
+               let mulitiplication = 12 * 12; // 144
+               let division = 10 / 2 // 5
+               let modulo = 12 % 5 // 2
+       
+               let incrementation = 12
+               incrementation = incrementation + 1
+               incrementation++
+       
+               let decrementation = 12
+               decrementation = decrementation - 1
+               decrementation--
+       
+               // opérateur d'affection 
+               let num = 12
+               num += 2
+               num -+ 3
+       
+               // opérateur logique ET et OU
+               let isTrue = true
+               let isFalse = false
+               let vraiOrFalse = isFalse && isTrue // false (AND)
+               let vraiOrFalse2 = isFalse || isTrue // true (OR)        
+               let notTrue = !isTrue // false
+       
+       
+               // Type Cohercion (conversion implicite)
+               let egalite = 12 == '12' // true 
+               let egaliteStrict = 12 === '12' // false
+               let dif = 12 != '12' // false
+               let difStrict = 12 !== '12' // true
+       
+       
+               // conversion explicite 
+               let nuum = 12
+               let chaineNum = String(nuum); // '12'
+               let renuum = Number(chaineNum) // 12
+       
+       
+       
+            </code>    
+
+        </div>
+
+
+    </main>
+
+    <footer class="bg-black py-10 text-white font-thin mt-10">
+        <p class="text-center">
+            Copyright All rights reserved
+        </p>
+    </footer>
+
+    <script>
+         // commentaire
+         // variable : 1 donnée stockée en mémoire + 1 symbole + 1 type de donnée
+
+         // déclaration de variable :
+         // var : mot clé historique : portée de fonction  (pratiquement plus utilisé)
+         // let : idem que var -> portée de block
+         // const : portée de block , il ne peut pas réasigner
+         // sans mot clé  : équivalent à var si la variable n'existe pas encore 
+
+
+         // type de donnée
+
+         // Primitifs : stockage par valeur
+         // Number 
+         // String
+         // Boolean
+         // Null
+         // Undefined
+         // Symbol (ES6)
+
+         // Complexe stocker par référence
+         // Object
+         // Array
+         // Function
+
+         let nombre = 54 // number 
+         let chaine = "Bonjour" // string
+         let bool = true // ou false
+         let nul = null
+         let indefini = undefined
+         let symbol = Symbol('symbol') // symbol
+
+         function func() {
+
+         }
+
+         let equipage = ["Luffy", "Ussop", "Sanji"]; // Array
+         let personnage = {
+            nom : "Naruto",
+            village: "Konoha"
+         } // Objet
+
+         //Ce sont des Data stuctures 
+
+         // Scope -> Porté -> visibilité ou accessibilité d'un variable
+
+         /**
+          * Scope Global : par défaut 
+          * Scope de fonction 
+          * Scope de block // ES6 let const
+        **/
+
+        demo()
+        var a = "Je suis un variable" // scope global
+        
+        function demo() {  
+            const b = "Je suis une autre fonction" //  scope fonction
+            console.log(b); // accesible que dans la fonction
+            console.log(a) // accessible dans le scope de la fonction et le scope global
+            console.log(c)
+        }
+
+    
+        var c; // undefined (hisser pendant la phase de création)
+        // let et const -> hoister 
+        // TEMPORAL DEAD ZONE 
+
+        // Hoisting
+
+        console.log(op)
+        var op = 12
+
+        // Lexical scope 
+
+        let outerVar = "Je suis a l'exterieur";
+
+        function outerFunction() {
+            let innerVar = "Je suis à l'intérieur"
+
+
+            function innerFunction() {
+                console.log(innerVar);
+                console.log(outerVar);
+            }
+            innerFunction()
+        }
+
+        outerFunction()
+
+        // Scope chain
+        function text() {
+            var x = 1
+            if(true) {
+                var x = 2
+                console.log(x);
+            }
+            console.log(x)
+        }
+
+        function text2() {
+            let x = 1
+            if(true) {
+                let x = 2
+                console.log(x);
+            }
+            console.log(x)
+        }
+
+        // typeof : opérateur unaire
+        console.log(typeof outerVar)
+
+        /*** Opérateur **/
+        // arithmétique
+        let addition = 100 + 80 
+        console.log(addition);
+        let soustraction = 12 - 2
+        console.log(soustraction);
+
+        let mulitiplication = 12 * 12; // 144
+        let division = 10 / 2 // 5
+        let modulo = 12 % 5 // 2
+
+        let incrementation = 12
+        incrementation = incrementation + 1
+        incrementation++
+
+        let decrementation = 12
+        decrementation = decrementation - 1
+        decrementation--
+
+        // opérateur d'affection 
+        let num = 12
+        num += 2
+        num -+ 3
+
+        // opérateur logique ET et OU
+        let isTrue = true
+        let isFalse = false
+        let vraiOrFalse = isFalse && isTrue // false (AND)
+        let vraiOrFalse2 = isFalse || isTrue // true (OR)        
+        let notTrue = !isTrue // false
+
+
+        // Type Cohercion (conversion implicite)
+        let egalite = 12 == '12' // true 
+        let egaliteStrict = 12 === '12' // false
+        let dif = 12 != '12' // false
+        let difStrict = 12 !== '12' // true
+
+
+        // conversion explicite 
+        let nuum = 12
+        let chaineNum = String(nuum); // '12'
+        let renuum = Number(chaineNum) // 12
+
+       
+    </script>
+    
+</body>
+</html>

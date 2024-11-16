@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Les fonctions</title>
+</head>
+<body>
+    <header class="py-4 mb-10 shadow-2xl">
+        <nav class="flex justify-between container mx-auto px-4 text-2xl">
+            <p>Découvrons Javascript</p>
+            <p>By Dawan</p>
+        </nav>
+    </header>
+
+    <main class="min-h-screen container mx-auto px-4">
+        <h1 class="text-5xl font-bold my-8 text-center">Les fonctions</h1>
+        <div class="flex flex-col gap-2 font-thin">
+            <code class="block whitespace-pre bg-gray-100 shadow-lg my-2 italic text-lg">
+                //  Une fonction c'est un enchainement de traitement (instructions)
+                // * Définit une fois au préalable
+                // * peut être invoquer à plusieurs reprise 
+                // * peut accepter des paramètres
+                // * peut renvoyer une valeur
+                
+                // Déclaration de function
+                rire() // les fontions sont entièrement "hoister" au moment de la phase de création
+                function rire() {
+                    console.log("Zehahahaha");
+                }
+            
+                rire() // invocation
+                rire()
+                // 5 ans plus tard 
+                rire()
+                // Params
+                function rire2(typeRire) {
+                    console.log("Son rire est " + typeRire);
+                    console.log(`Son rire est ${typeRire} !`);
+                }
+            
+                // return 
+                function rire3(typeRire) {
+                    return `Son rire est ${typeRire} !`
+                }
+            
+                let sonRire = rire3("Yohohoho")
+                // si return pas déclaré , la fonction 
+                // renvoi undefined par défaut
+            
+                carree(2)
+                
+                // syntaxe de declaration 
+                const carree = function(x) {
+                    return x * x
+                }
+            
+                // Function are first class citizens
+                // Fonction c'est un objet ( Callable Object )
+                rire3.age = 12
+            
+            
+                // fonction flechée 
+                const message2 = (name) => {
+                    return "Hello " + name
+                }
+            
+                const message3 = name => "Hello " + name // return implicite
+            
+            
+            
+                let nom = "Naruto"
+            
+                function saluer () {
+                    let nom2 = "Uzumaki"
+                    console.log("Salut " + nom + nom2)
+                }
+            
+                saluer()
+            
+            
+            
+                // THIS : "ça" decrit le context actuel
+                const obj = {
+                    name: "Luffy",
+                    sayHello: function() {
+                        console.log(this)
+                        console.log("Hello " + this.name)
+                    }
+                } 
+            
+                // fonction flechée : pas de nouveau execution context
+                // le mot this est défini à la déclaration de la fonction
+                const obj2 = {
+                    name: "Luffy",
+                    sayHello: () => {
+                        console.log(this)
+                        console.log("Hello " + this.name)
+                    }
+                } 
+                obj2.sayHello()    
+            </code>    
+
+        </div>
+
+
+    </main>
+
+    <footer class="bg-black py-10 text-white font-thin mt-10">
+        <p class="text-center">
+            Copyright All rights reserved
+        </p>
+    </footer>
+
+    <script>  
+    //  Une fonction c'est un enchainement de traitement (instructions)
+    // * Définit une fois au préalable
+    // * peut être invoquer à plusieurs reprise 
+    // * peut accepter des paramètres
+    // * peut renvoyer une valeur
+    
+    // Déclaration de function
+    rire() // les fontions sont entièrement "hoister" au moment de la phase de création
+    function rire() {
+        console.log("Zehahahaha");
+    }
+
+    rire() // invocation
+    rire()
+    // 5 ans plus tard 
+    rire()
+    // Params
+    function rire2(typeRire) {
+        console.log("Son rire est " + typeRire);
+        console.log(`Son rire est ${typeRire} !`);
+    }
+
+    // return 
+    function rire3(typeRire) {
+        return `Son rire est ${typeRire} !`
+    }
+
+    let sonRire = rire3("Yohohoho")
+    // si return pas déclaré , la fonction 
+    // renvoi undefined par défaut
+
+    carree(2)
+    
+    // syntaxe de declaration 
+    const carree = function(x) {
+        return x * x
+    }
+
+    // Function are first class citizens
+    // Fonction c'est un objet ( Callable Object )
+    rire3.age = 12
+
+
+    // fonction flechée 
+    const message2 = (name) => {
+        return "Hello " + name
+    }
+
+    const message3 = name => "Hello " + name // return implicite
+
+
+
+    let nom = "Naruto"
+
+    function saluer () {
+        let nom2 = "Uzumaki"
+        console.log("Salut " + nom + nom2)
+    }
+
+    saluer()
+
+
+
+    // THIS : "ça" decrit le context actuel
+    const obj = {
+        name: "Luffy",
+        sayHello: function() {
+            console.log(this)
+            console.log("Hello " + this.name)
+        }
+    } 
+
+    // fonction flechée : pas de nouveau execution context
+    // le mot this est défini à la déclaration de la fonction
+    const obj2 = {
+        name: "Luffy",
+        sayHello: () => {
+            console.log(this)
+            console.log("Hello " + this.name)
+        }
+    } 
+    obj2.sayHello()
+
+
+    </script>
+    
+</body>
+</html>

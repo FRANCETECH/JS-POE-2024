@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Les erreurs</title>
+    <script>
+        const error = new Error("Erreur de type Error") // fonction constructeur
+        console.log(error.message)
+        console.log(error.name)
+        console.log(error.stack)
+
+        // throw
+        throw new Error("Oooooops")
+        new ReferenceError("Erreur de reference")
+        new SyntaxError("Erreur de syntaxte")
+        new TypeError("Erreur de type")
+
+        consol.log("dsfjidke")
+
+        // try/catch 
+        function echec() {
+            try {
+                throw new Error("ahhahha")
+                console.log("hehehhe")
+            } catch(e) {
+                console.error(`Erreur capturée : ${e}`)
+            } finally {
+                console.log("zehahaha")
+            }
+        }
+        // si on ne capture l'erreur le programme s'arrete 
+        function echec2() {
+                throw new Error("ahhahha")
+                console.log("hehehhe")
+        }
+        echec2() // stop le programme 
+        console.log("fin du script")
+
+
+        // si opération async, le catch doit être dans le callback
+        function echec3() {
+            setTimeout(() => {
+                try {
+                    throw new Error("Ops")
+                } catch (e) {
+                    console.log("Erreur: " + e)
+                }
+            }, 2000);
+        }
+
+
+        function echec4() {
+            try {
+                setTimeout(() => {
+                    throw new Error("Ops") 
+                  }, 2000); 
+            } catch (e) {
+                    console.log("Erreur: " + e)
+                }
+        }
+
+    </script>
+</head>
+<body>
+    <header class="py-4 mb-10 shadow-2xl">
+        <nav class="flex justify-between container mx-auto px-4 text-2xl">
+            <p>Découvrons Javascript</p>
+            <p>By Dawan</p>
+        </nav>
+    </header>
+
+    <main class="min-h-screen container mx-auto px-4">
+        <h1 class="text-5xl font-bold my-8 text-center">Les erreurs</h1>
+        <p>La gestion des erreurs est une partie crucial 
+            de la programmation, elle permet de s'assurer que votre code 
+            continue de s'executer même si des problèmes inattendus se
+            produisent. 
+        </p>
+
+        <h2 class="font-bold text-xl my-4">Try/Catch</h2>
+        <p>Le bloc try/catch permet de capturer une erreur 
+            sans interrompre le reste du code</p>
+        <h2 class="font-bold text-xl my-4">Throw</h2>
+        <p>Permet de générer des erreurs personnalisées</p>
+        <h2 class="font-bold text-xl my-4">Finally</h2>
+        <p>Finally fonctionne avec try/catch pour 
+            executer du code indépendamment du fait qu'une 
+            erreur soit capturée.
+        </p>
+         <code class="block whitespace-pre bg-gray-100 shadow-lg my-2 italic text-lg">
+       const error = new Error("Erreur de type Error") // fonction constructeur
+        console.log(error.message)
+        console.log(error.name)
+        console.log(error.stack)
+
+        // throw
+        throw new Error("Oooooops")
+        new ReferenceError("Erreur de reference")
+        new SyntaxError("Erreur de syntaxte")
+        new TypeError("Erreur de type")
+
+        consol.log("dsfjidke")
+
+        // try/catch 
+        function echec() {
+            try {
+                throw new Error("ahhahha")
+                console.log("hehehhe")
+            } catch(e) {
+                console.error(`Erreur capturée : ${e}`)
+            } finally {
+                console.log("zehahaha")
+            }
+        }
+        // si on ne capture l'erreur le programme s'arrete 
+        function echec2() {
+                throw new Error("ahhahha")
+                console.log("hehehhe")
+        }
+        echec2() // stop le programme 
+        console.log("fin du script")
+
+
+        // si opération async, le catch doit être dans le callback
+        function echec3() {
+            setTimeout(() => {
+                try {
+                    throw new Error("Ops")
+                } catch (e) {
+                    console.log("Erreur: " + e)
+                }
+            }, 2000);
+        }
+
+        
+        function echec4() {
+            try {
+                setTimeout(() => {
+                    throw new Error("Ops") 
+                  }, 2000); 
+            } catch (e) {
+                    console.log("Erreur: " + e)
+                }
+        }
+        </code>    
+
+   
+    </main>
+
+    <footer class="bg-black py-10 text-white font-thin mt-10">
+        <p class="text-center">
+            Copyright All rights reserved
+        </p>
+    </footer>
+</body>
+</html>

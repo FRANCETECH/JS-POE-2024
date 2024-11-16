@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>new Game()</title>
+    <script src="game.js" defer></script>
+</head>
+<body>
+    <header class="py-4 mb-10 shadow-2xl">
+        <nav class="flex justify-between container mx-auto px-4 text-2xl">
+            <p>Découvrons Javascript</p>
+            <p>By Dawan</p>
+        </nav>
+    </header>
+
+    <main class="min-h-screen container mx-auto px-4">
+        <h1 class="text-2xl font-bold my-4">Oriented Object Programming : new Game()</h1>
+        <div class="flex flex-col gap-2 font-thin">
+            <h2>Consigne</h2>
+            <h3>Partie 1</h3>
+            <ul>
+                <li>Personnages: Le jeu actuel possède une série de personnages définis par leurs classes respectives. Votre mission est d'ajouter deux nouveaux personnages avec leurs capacités uniques. Assurez-vous de bien définir leurs caractéristiques (pv, attaque) et au moins une capacité spéciale propre à chacun.
+                </li>
+                <li>Modifications des Classes:</li>
+                <li>Classe Personnage : Ajoutez une méthode defendre() qui permet à un personnage de réduire de moitié les dégâts d'une prochaine attaque.
+                </li>
+                <li>Classe Uchiha : Introduisez une contrainte où l'activation du Sharingan utilise des points de chakra. Chaque Uchiha commence avec 100 points de chakra, et l'activation du Sharingan en consomme 30.
+                </li>
+                <li>
+                    Classe Jinchuriki : Ajoutez une méthode libererBijuu() qui permet au Jinchuriki de liberer son bijuu et multiplier par 3 son attaque.
+                </li>
+                <li>
+                    Système de tour par tour:
+                    Créez un système simple qui permet aux joueurs de choisir un personnage et de décider s'ils veulent attaquer, se défendre ou utiliser une capacité spéciale.
+                    La fin du jeu est déterminée quand l'un des personnages n'a plus de points de vie.
+                </li>
+            </ul>
+            <h3>Partie 2</h3>
+            <ul>
+                <li>Creer un interface graphique</li>
+            </ul>
+        </div>
+
+        <h2 class="text-xl uppercase font-semibold text-red-800 my-5">Interface: Naruto Fighter  </h2>
+        <div class="game">
+            <button class="start-game bg-cyan-500 text-white py-2 px-4  mb-5">Start Game</button>
+    
+            <div class="selection-personnages  hidden">
+                <h3 class="text-lg font-blog my-2">Choisir un personnage</h3>
+                <div class="grid grid-cols-3 gap-4 mb-5">
+                    <!-- Naruto -->
+                    <div class="perso-card bg-cyan-200  p-4 rounded shadow-lg cursor-pointer" data-nom="Naruto">
+                        <h2 class="text-xl font-bold mb-2">Naruto</h2>
+                        <img src="https://www.kanpai.fr/sites/default/files/styles/og/public/naruto-tag.jpg" alt="Naruto Image" class="w-full h-32 object-cover mb-2">
+                        <p>PV: 100</p>
+                        <p>Attaque: 25</p>
+                    </div>
+                    <!-- Sasuke -->
+                    <div class="perso-card bg-cyan-200  p-4 rounded shadow-lg cursor-pointer" data-nom="Sasuke">
+                        <h2 class="text-xl font-bold mb-2">Sasuke</h2>
+                        <img src="https://media.ultimate-manga.com/naruto/wallpaper-naruto-sharingan-sasuke.jpg" alt="Sasuke Image" class="w-full h-32 object-cover mb-2">
+                        <p>PV: 120</p>
+                        <p>Attaque: 35</p>
+                    </div>
+    
+                    <!-- Sakura -->
+                    <div class="perso-card bg-cyan-200  p-4 rounded shadow-lg cursor-pointer" data-nom="Sakura">
+                        <h2 class="text-xl font-bold mb-2">Sakura</h2>
+                        <img src="https://pm1.aminoapps.com/7890/4deac21f2e2271c1d0d2f7e9527c10cb32fc684fr1-736-736v2_00.jpg" alt="Sakura Image" class="w-full h-32 object-cover mb-2">
+                        <p>PV: 80</p>
+                        <p>Attaque: 15</p>
+                    </div>
+    
+                    <!-- Kakashi -->
+                    <div class="perso-card bg-cyan-200 p-4 rounded shadow-lg cursor-pointer" data-nom="Kakashi">
+                        <h2 class="text-xl font-bold mb-2">Kakashi</h2>
+                        <img src="https://i.pinimg.com/736x/e1/ed/06/e1ed0630f3e050b74b1c3fffd6dcf294.jpg" alt="Kakashi Image" class="w-full h-32 object-cover mb-2">
+                        <p>PV: 160</p>
+                        <p>Attaque: 40</p>
+                    </div>
+    
+                    <!-- Itachi -->
+                    <div class="perso-card bg-cyan-200  p-4 rounded shadow-lg cursor-pointer" data-nom="Itachi">
+                        <h2 class="text-xl font-bold mb-2">Itachi</h2>
+                        <img src="https://cdn.shopify.com/s/files/1/0046/2779/1960/files/itachi_uchiha.jpg?v=1584276136" alt="Itachi Image" class="w-full h-32 object-cover mb-2">
+                        <p>PV: 200</p>
+                        <p>Attaque: 55</p>
+                    </div>
+    
+                    <!-- Kisame -->
+                    <div class="perso-card bg-cyan-200  p-4 rounded shadow-lg cursor-pointer" data-nom="Kisame">
+                        <h2 class="text-xl font-bold mb-2">Kisame</h2>
+                        <img src="https://images3.alphacoders.com/665/665366.jpg" alt="Kisame Image" class="w-full h-32 object-cover mb-2">
+                        <p>PV: 120</p>
+                        <p>Attaque: 28</p>
+                    </div>
+    
+                </div>
+    
+    
+            </div>
+    
+            <div class="game-interface hidden">
+    
+                <!-- Carte du personnage du joueur -->
+                <div class="player-card bg-cyan-200  p-4 rounded shadow-lg mb-4">
+                    <h2 class="text-xl font-bold mb-2">Your Character</h2>
+                    <div class="character-info">
+                        <!-- Les infos du personnage seront insérées ici -->
+                    </div>
+                    <div class="actions mt-4">
+                        <button class="bg-green-500 text-white py-1 px-3 rounded" data-action="attaque">Attaque</button>
+                        <button class="bg-blue-500 text-white py-1 px-3 rounded" data-action="defense">Observer</button>
+                        <button class="bg-red-500 text-white py-1 px-3 rounded" data-action="special">Spécial</button>
+                    </div>
+                </div>
+    
+                <!-- Carte du personnage cible -->
+                <div class="target-card bg-white p-4 rounded shadow-lg mb-4">
+                    <h2 class="text-xl font-bold mb-2">Target</h2>
+                    <div class="character-info">
+                        <!-- Les infos de la cible seront insérées ici -->
+                    </div>
+                </div>
+    
+                <!-- Journal de combat -->
+                <div class="journal-combat bg-white p-4 rounded shadow-lg">
+                    <h2 class="text-xl font-bold mb-2">Journal de Combat</h2>
+                    <textarea class="w-full h-48 p-2 rounded border" readonly></textarea>
+                </div>
+    
+            </div>
+        </div>
+    
+   
+    </main>
+
+    <footer class="bg-black py-10 text-white font-thin mt-10">
+        <p class="text-center">
+            Copyright All rights reserved
+        </p>
+    </footer>
+</body>
+</html>

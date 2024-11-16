@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Exercice formulaire d'inscription</title>
+    <script src="exercice.js" defer></script>
+</head>
+<body>
+    <header class="py-4 mb-10 shadow-2xl">
+        <nav class="flex justify-between container mx-auto px-4 text-2xl">
+            <p>Découvrons Javascript</p>
+            <p>By Dawan</p>
+        </nav>
+    </header>
+
+    <main class="min-h-screen container mx-auto px-4">
+        <h1 class="text-5xl font-bold my-8 text-center">
+            Exercice formulaire d'inscription</h1>
+            <section class="mb-5">
+                <h2 class="text-xl uppercase font-semibold text-red-800">Enoncé</h2>
+                <p>Vous devez développer un formulaire de contact </p>
+                <p>Le formulaire doit contenir les champs suivants :</p>
+                <ul class="list-disc list-inside">
+                    <li>Nom (Obligatoire min:2, max:100)</li>
+                    <li>Prénom (Obligatoire min:2, max:100)</li>
+                    <li>Email (Obligatoire , email)</li>
+                    <li>Téléphone (Obligatoire min:10, max:10)</li>
+                    <li>Site web</li>
+                    <li>Mot de passe (Obligatoire , regex)</li>
+                    <li>Confirmation du mot de passe (Obligatoire ,regex, identique au password)</li>
+                </ul>
+                <p>Le formulaire doit être valide avant d'être envoyé 
+                    et reset après soumission </p>
+                <p>Lors de la soumission  :
+                     un message: "Un email a été envoyé à l'adresse "email", si non: "Le vormulaire est invalide"</p>
+                    <p>Le messsage doit disparaitre au bout de 3s ou 3000ms</p>
+            </section>
+
+            <section class="flex flex-col gap-2 justify-center container mx-auto px-auto" >
+                <div id="message" class="border-2 rounded-md p-4 text-center text-lg w-[700px]">
+                    L'aventure commence ici !
+                </div>
+              <form id="register-form" class="shadow-lg p-4 flex flex-col gap-4 w-[700px]" novalidate>
+                  <fieldset class="border-none">
+                      <legend class="text-center text-2xl my-5 font-bold">Inscrivez-vous maintenant !</legend>
+                  <div class="flex flex-col gap gap-2">
+                        <label for="nom">Nom <sup class="text-red-700">*</sup></label>
+                        <input class="py-2 px-5 bg-gray-100 rounded-md border-2 invalid:border-red-500 valid:border-emerald-500"
+                               type="text" id="nom" name="nom" placeholder="Votre nom"
+                               maxlength="100" minlength="2" required
+                        >
+                  </div>
+                    <div class="flex flex-col gap gap-2">
+                            <label class="text-lg" for="prenom">Prénom <sup class="text-red-700">*</sup></label>
+                            <input class="py-2 px-5 bg-gray-100 rounded-md border-2 invalid:border-red-500 valid:border-emerald-500"
+                                   type="text" id="prenom" name="prenom" placeholder="Votre prénom"
+                                   required maxlength="100" minlength="3"
+                            >
+                    </div>
+                  <div class="flex flex-col gap gap-2">
+                            <label class="text-lg" for="email">Email <sup class="text-red-700">*</sup></label>
+                            <input class="py-2 px-5 bg-gray-100 rounded-md border-2 invalid:border-red-500 valid:border-emerald-500"
+                                   type="email" id="email" name="email" placeholder="john@doe.fr"
+                                   required maxlength="100" minlength="3"
+                            >
+                    </div>
+                  <div class="flex flex-col gap gap-2">
+                      <label class="text-lg" for="phone">Téléphone <sup class="text-red-700">*</sup> </label>
+                      <input class="py-2 px-5 bg-gray-100 rounded-md border-2 invalid:border-red-500 valid:border-emerald-500"
+                             type="text" id="phone" name="phone"
+                             placeholder="0710101010"
+                             required minlength="10" maxlength="10"
+                      >
+                  </div>
+                  <div class="flex flex-col gap gap-2">
+                      <label class="text-lg" for="website">Site Web </label>
+                      <input class="py-2 px-5 bg-gray-100 rounded-md border-2 invalid:border-red-500 valid:border-emerald-500"
+                             type="text" id="website" name="website" placeholder="www.dawan.fr">
+                  </div>
+                  <div class="flex flex-col gap gap-2">
+                            <label class="text-lg"  for="password">Mot de passe<sup class="text-red-700">*</sup></label>
+                            <input class="py-2 px-5 bg-gray-100 rounded-md border-2 invalid:border-red-500 valid:border-emerald-500"
+                                   type="password" id="password" name="password" placeholder="Votre mot de passe"
+                                   required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                            >
+                      <span>Le mot de passe doit contenir au moins : 1 Majuscule, 1 minuscule et 1 chiffre</span>
+                    </div>
+                  <div class="flex flex-col gap gap-2">
+                            <label class="text-lg"  for="password-confirm">Confirmation du mot de passe<sup class="text-red-700">*</sup></label>
+                            <input class="py-2 px-5 bg-gray-100 rounded-md border-2 invalid:border-red-500 valid:border-emerald-500"
+                                   type="password" id="password-confirm" name="mdp2" placeholder="Confirmez votre mot de passe"
+                                   required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                            >
+                      <span>Le mot de passe doit contenir au moins : 1 Majuscule, 1 minuscule et 1 chiffre</span>
+                    </div>
+                  </fieldset>
+                    <button id="btn-form" class="py-2 bg-black text-white hover:text-black hover:bg-white shadow-lg font-bold">Envoyer</button>
+              </form>
+        
+            </section>
+     
+    </main>
+
+    <footer class="bg-black py-10 text-white font-thin mt-10">
+        <p class="text-center">
+            Copyright All rights reserved
+        </p>
+    </footer>
+</body>
+</html>

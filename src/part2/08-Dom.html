@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Dom</title>
+</head>
+<body>
+    <header class="py-4 mb-10 shadow-2xl">
+        <nav class="flex justify-between container mx-auto px-4 text-2xl">
+            <p>Découvrons Javascript</p>
+            <p>By Dawan</p>
+        </nav>
+    </header>
+
+    <main class="min-h-screen container mx-auto px-4">
+        <h1 class="text-5xl font-bold my-8 text-center">
+            Le DOM(document objet model)</h1>
+        <div class="flex flex-col gap-2 font-thin">
+            <p>Une interface de programmation (API) qui represente 
+                la structure d'un document HTML, XML ou XHTML sous
+                forme d'arbre
+            </p>
+            <p>Il permet notamment de :</p>
+            <ul>
+                <li>Manipuler des éléments</li>
+                <li>Manipuler des attributs</li>
+                <li>Manipuler des contenus</li>
+            </ul>
+
+            <p>
+                Il faut que tous les éléments soient chargés 
+                pour qu'il soit possible d'agir avec eux en JS
+                On écoute l'événement de la fenêtre
+                 "DOMContentLoaded" qui survient quand la 
+                 page est totalement chargée.
+            </p>
+            <a href="https://developer.mozilla.org/fr/docs/Web/API/Document">Lien vers la documentation</a>
+
+            <figure>
+                <img src="../../assets/tree.png" alt="Arbre DOM">
+                <figcaption>Arbre DOM</figcaption>
+
+            </figure>
+             <p class="hehe" id="text">HEHEHE</p>
+             <p class="hehe">Hhehehe</p>
+
+            <code class="block whitespace-pre bg-gray-100 shadow-lg my-2 italic text-lg">
+    
+            </code>    
+
+        </div>
+
+        <div class="bg-cyan-50 p-2 my-3" id="exercice">
+        </div>
+
+        <div class="bg-red-50 p-2 my-3" id="exo">
+
+        </div>
+
+    </main>
+
+    <footer class="bg-black py-10 text-white font-thin mt-10">
+        <p class="text-center">
+            Copyright All rights reserved
+        </p>
+    </footer>
+
+    <script src="dom.js"></script>
+    
+</body>
+</html>
